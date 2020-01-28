@@ -15,6 +15,11 @@ public class UserServiceImpl implements UserService {
   UserMapper userMapper;
 
   @Override
+  public User getUserinfo(int userId) {
+    return userMapper.selectById(userId);
+  }
+
+  @Override
   public User loginPwd(String name, String pwd, String captcha) {
     QueryWrapper<User> queryWrapper = new QueryWrapper<>();
     queryWrapper.eq("name", name).eq("pwd", pwd);
