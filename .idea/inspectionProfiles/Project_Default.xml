@@ -1,6 +1,7 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="ConfigurationProperties" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SpringJavaInjectionPointsAutowiringInspection" enabled="true" level="Code Format" enabled_by_default="true" />
     <inspection_tool class="aegis.code.check.validation" enabled="true" level="Code Format" enabled_by_default="true" />
     <inspection_tool class="aegis.code.check.validation.companion.to.object" enabled="true" level="Code Format" enabled_by_default="true" />

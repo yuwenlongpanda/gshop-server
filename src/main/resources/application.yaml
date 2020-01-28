@@ -8,3 +8,9 @@ spring:
     password: 123456
 server:
   port: 4000
+gshop:
+  sms:
+    accessKeyId: LTAIalycZTKmztvf # 你自己的accessKeyId
+    accessKeySecret: W6o3OxuIMYUAvXJYpv4CyZsdKHvbqw  # 你自己的AccessKeySecret
+    signName: gshop # 签名名称
+    verifyCodeTemplate: SMS_182684273 # 模板名称
