@@ -14,7 +14,7 @@ public class GshopExceptionHandler {
     @ExceptionHandler(GshopException.class)
     @ResponseBody
     public Result exceptionHandler(GshopException e){
-        log.error("错误消息：{}", e.getMessage(), e);
+        log.error("自定义异常：{}", e.getMessage(), e);
        return ResultBuilder.buildNgResult(e.getMsg());
     }
 }
