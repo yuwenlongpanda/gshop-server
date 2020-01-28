@@ -27,4 +27,17 @@ public class CookieUtils {
         response.addCookie(cookie);
     }
 
+    public static void cleanCookie(HttpServletRequest request, HttpServletResponse response, String cookieName){
+        Cookie[] cookies =  request.getCookies();
+        if(cookies != null){
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals(cookieName)){
+                    cookie.setPath("/");
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ import com.wenlong.yu.utils.CookieUtils;
 import com.wenlong.yu.utils.ResultBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,8 +43,18 @@ public class UserController {
   @RequestMapping("userinfo")
   @ResponseBody
   public Result getUserinfo(HttpServletRequest request) {
-    int userId = Integer.valueOf(CookieUtils.getCookie(request, CookieUtils.USER_ID));
-    return ResultBuilder.buildOkResult(userService.getUserinfo(userId));
+    String cookie = CookieUtils.getCookie(request, CookieUtils.USER_ID);
+    if (StringUtils.isEmpty(cookie)) {
+      return ResultBuilder.buildNgResult();
+    }
+    return ResultBuilder.buildOkResult(userService.getUserinfo(Integer.valueOf(cookie)));
+  }
+
+  @RequestMapping("logout")
+  @ResponseBody
+  public Result logout(HttpServletRequest request, HttpServletResponse response) {
+    CookieUtils.cleanCookie(request, response, CookieUtils.USER_ID);
+    return ResultBuilder.buildOkResult();
   }
 
 }
