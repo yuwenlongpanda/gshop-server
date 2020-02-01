@@ -9,4 +9,5 @@ public interface ShopsService {
   List<Shops> getShopsList();
 
 
+  List<Shops> searchShops(String keyword);
 }
